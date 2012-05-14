@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Some Project Name" default="DeployToWebserver" basedir="./">
+    <property name="Htdocs Directory" value="F:/xampp/htdocs/blog/wp-content/plugins/" />
+    <target name="DeployToWebserver">
+        <echo>Copy files to ${Htdocs Directory}.</echo>
+        <copy todir="${Htdocs Directory}">
+            <fileset dir="../src">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+    </target>
+</project>
