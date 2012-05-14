@@ -7,10 +7,6 @@
  * Version: 0.1
  * Author: Frank Schiemenz
  * Author URI: https://github.com/Schiemenz
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
 /**
@@ -61,12 +57,12 @@ class GuildNews_Widget extends WP_Widget
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) 
+	function widget($args, $instance) 
 	{
 		extract( $args );
 		
 		/* Our variables from the widget settings. */
-		$title = apply_filters('widget_title', $instance['title'] );
+		$title = apply_filters('widget_title', $instance['title']);
 		$guild = $instance['guild'];
 		$region = $instance['region'];
 		$realm = $instance['realm'];
@@ -149,16 +145,14 @@ class GuildNews_Widget extends WP_Widget
 								echo '</p>';
 								break;
 							}
-							
-						default: __('Keine aktuellen Meldungen', 'guildnews');
-							
-					}
+						
+						}
 					
-				}
+					}
 				
-			}
+				}
 			
-		}
+			}
 		
 		/* After widget (defined by themes). */
 		echo $after_widget;
@@ -168,7 +162,7 @@ class GuildNews_Widget extends WP_Widget
 	/**
 	 * Update the widget settings.
 	 */
-	function update( $new_instance, $old_instance ) 
+	function update($new_instance, $old_instance) 
 	{
 		$instance = $old_instance;
 
@@ -188,8 +182,8 @@ class GuildNews_Widget extends WP_Widget
 	 * Make use of the get_field_id() and get_field_name() function
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
-	function form( $instance ) {
-
+	function form($instance) 
+	{
 		/* Set up some default widget settings. */
 		$defaults = array('title' => __('Guild News', 'guildnews'), 
 				         'region' => 'eu.battle.net', 
@@ -199,9 +193,7 @@ class GuildNews_Widget extends WP_Widget
 					        'max' => '5'
 				);
 		
-		$instance = wp_parse_args((array) $instance, $defaults); 
-		
-		?>
+		$instance = wp_parse_args((array) $instance, $defaults); ?>
 
 		<!-- Widget Title: Text Input -->
 		<p>
@@ -237,6 +229,7 @@ class GuildNews_Widget extends WP_Widget
 		</p>
 
 	<?php
+	
 	}
 }
 
