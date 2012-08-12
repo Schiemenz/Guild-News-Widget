@@ -2,14 +2,16 @@ A simple widged for WordPress that displays WoW guild news
 written by F.Schiemenz
 
 TODO
-- localization / translation
-- validation of the itemCreated newstype
-- enhanced region support 
-- more verbose item information via API
+- translation
+- additional newstypes
 - relative timestamps
 
 INFO
 - complete Eclipse project
 - written in PHP
-- featuring Blizzard Community Platform API for World of Warcraft
+- uses Blizzard Community Platform API for World of Warcraft
 - featuring Wowhead.com
+
+HINT
+- Adding the WordPress source into the PHP Include Path 
+allows for the code completion/hinting to work in Eclipse
