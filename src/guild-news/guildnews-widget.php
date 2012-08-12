@@ -140,7 +140,7 @@ class GuildNews_Widget extends WP_Widget
 								echo '<p>';
 								/* echo __('Am ', 'guildnews') . date("d.m.", $news['timestamp']/1000) . __(' hat ', 'guildnews') . '<strong>' .  $news[character] . '</strong>' .
 								 __(' einen ', 'guildnews') . '<a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' .  __(' Gegenstand ', 'guildnews') .'</a>' . __(' erworben.', 'guildnews'); */
-								echo $news[character] . __(' erwarb ', 'guildnews') . ' <a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' . $this->getProperyByItemId($instance, "name", $news['itemId']) .'</a>' . ".";
+								echo $news[character] . __(' erwarb ', 'guildnews') . ' <a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' . $this->getPropertyByItemId($instance, "name", $news['itemId']) .'</a>' . ".";
 								echo '</p>';
 								break;
 							}
@@ -150,7 +150,7 @@ class GuildNews_Widget extends WP_Widget
 								echo '<p>';
 								/* echo __('Am ', 'guildnews') . date("d.m.", $news['timestamp']/1000) . __(' hat ', 'guildnews') . '<strong>'  . $news[character] . '</strong>' .
 								 __(' einen ', 'guildnews') . '<a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' .  __(' Gegenstand ', 'guildnews') .'</a>' . __(' erbeutet.', 'guildnews'); */
-								echo $news[character] . __(' lootete ', 'guildnews') . ' <a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' . $this->getProperyByItemId($instance, "name", $news['itemId']) .'</a>' . ".";
+								echo $news[character] . __(' lootete ', 'guildnews') . ' <a href="http://www.wowhead.com/item=' . $news['itemId'] . '">' . $this->getPropertyByItemId($instance, "name", $news['itemId']) .'</a>' . ".";
 								echo '</p>';
 								break;
 							}
@@ -185,12 +185,12 @@ class GuildNews_Widget extends WP_Widget
 	 * @return mixed
 	 */
 
-	function getProperyByItemId($instance, $property, $id)
+	function getPropertyByItemId($instance, $property, $id)
 	{
 		$region = $instance['region'];
 		$locale = $instance['locale'];
 
-		$api_item_url = "http://" . $region . "/api/wow/item/" . rawurlencode($id) . "?locale=" . $locale;
+		$api_item_url = "http://" . $region . "/api/wow/item/" . $id . "?locale=" . $locale;
 
 		$item = json_decode(file_get_contents($api_item_url), true);
 
@@ -232,7 +232,7 @@ class GuildNews_Widget extends WP_Widget
 				'locale' => 'de_DE',
 				'realm' => 'Blackhand',
 				'guild' => 'Embargo Agency',
-				'max' => ''
+				'max' => '5'
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults); ?>
